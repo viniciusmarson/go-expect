@@ -63,7 +63,7 @@ expect.TheValue(2).toBeLessThanOrEqualTo(3)(t)
 
 ### toBeGreaterThan
 
-> `expectTheValue(number).toBeGreaterThan(valu)(t)`
+> `expect.TheValue(number).toBeGreaterThan(value)(t)`
 
 Asserts the given `number` is greater than `value`.
 
