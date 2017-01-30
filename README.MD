@@ -35,7 +35,7 @@ expect.TheValue(nil).ToNotExist()(t)
 Asserts that `someValue` is strictly equal to `expectedValue`.
 
 ```js
-expect.TheValue([]int{1,2,3,4}).toBe([]int{1,2,3,4})(t)
+expect.TheValue([]int{ 1, 2, 3, 4 }).toBe([]int{ 1, 2, 3, 4 })(t)
 ```
 
 
@@ -46,7 +46,7 @@ expect.TheValue([]int{1,2,3,4}).toBe([]int{1,2,3,4})(t)
 Asserts that `someValue` is not strictly equal to `expectedValue`.
 
 ```js
-expect.TheValue([]int{1,2,3,4}).toBe([]int{4,3,2,1})(t)
+expect.TheValue([]int{ 1, 2, 3, 4 }).toBe([]int{ 4, 3, 2, 1 })(t)
 ```
 
 
