@@ -8,77 +8,114 @@ When you use go-expect, you write assertions similarly to how you would say them
 $ go get github.com/viniciusmarson/go-expect/expect
 ```
 
-### toExist
+### ToExist
 
-> `expect.TheValue(someValue).toExist()(t)`
+> `expect.TheValue(someValue).ToExist()(t)`
 
 Asserts the given `value` is not nil.
 
 ```js
-expect.TheValue('something truthy').toExist()(t)
+expect.TheValue('something truthy').ToExist()(t)
 ```
 
-### toNotExist
+### ToNotExist
 
-> `expect.TheValue(someValue).toNotExist()(t)`
+> `expect.TheValue(someValue).ToNotExist()(t)`
 
 Asserts the given `value` is nil.
 
 ```js
-expect.TheValue(nil).toNotExist()(t)
+expect.TheValue(nil).ToNotExist()(t)
 ```
 
-### toBe
+### ToBe
 
-> `expect.TheValue(someValue).toBe(expectedValue)(t)`
+> `expect.TheValue(someValue).ToBe(expectedValue)(t)`
 
 Asserts that `someValue` is strictly equal to `expectedValue`.
 
-### toNotBe
+```js
+expect.TheValue([]int{1,2,3,4}).toBe([]int{1,2,3,4})(t)
+```
 
-> `expect(someValue).toNotBe(expectedValue)(t)`
+
+### ToNotBe
+
+> `expect(someValue).ToNotBe(expectedValue)(t)`
 
 Asserts that `someValue` is not strictly equal to `expectedValue`.
 
+```js
+expect.TheValue([]int{1,2,3,4}).toBe([]int{4,3,2,1})(t)
+```
 
-### toBeLessThan
 
-> `expect.TheValue(number).toBeLessThan(value)(t)`
+### ToBeLessThan
+
+> `expect.TheValue(number).ToBeLessThan(value)(t)`
 
 Asserts the given `number` is less than `value`.
 
 ```js
-expect.TheValue(2).toBeLessThan(3)(t)
+expect.TheValue(2).ToBeLessThan(3)(t)
 ```
 
-### toBeLessThanOrEqualTo
 
-> `expect.TheValue(number).toBeLessThanOrEqualTo(value)(t)`
+### ToBeLessThanOrEqualTo
+
+> `expect.TheValue(number).ToBeLessThanOrEqualTo(value)(t)`
 
 Asserts the given `number` is less than or equal to `value`.
 
 ```js
-expect.TheValue(2).toBeLessThanOrEqualTo(3)(t)
+expect.TheValue(2).ToBeLessThanOrEqualTo(3)(t)
 ```
 
-### toBeGreaterThan
 
-> `expectTheValue(number).toBeGreaterThan(valu)(t)`
+### ToBeGreaterThan
+
+> `expectTheValue(number).ToBeGreaterThan(valu)(t)`
 
 Asserts the given `number` is greater than `value`.
 
 ```js
-expect.TheValue(3).toBeGreaterThan(2)(t)
+expect.TheValue(3).ToBeGreaterThan(2)(t)
 ```
 
-### toBeGreaterThanOrEqualTo
 
-> `expect.TheValue(number).toBeGreaterThanOrEqualTo(value)(t)`
+### ToBeGreaterThanOrEqualTo
+
+> `expect.TheValue(number).ToBeGreaterThanOrEqualTo(value)(t)`
 
 Asserts the given `number` is greater than or equal to `value`.
 
 ```js
-expect.TheValue(3).toBeGreaterThanOrEqualTo(2)(t)
+expect.TheValue(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
+
+
+### ToBeGreaterThanOrEqualTo
+
+> `expect.TheValue(number).ToBeGreaterThanOrEqualTo(value)(t)`
+
+Asserts the given `number` is greater than or equal to `value`.
+
+```js
+expect.TheValue(3).ToBeGreaterThanOrEqualTo(2)(t)
+```
+
+
+### Contains
+
+> `expect.TheValue(slice).Contains(value)(t)`
+
+Asserts the given `slice` contains the `value`.
+
+```js
+expect.TheValue([]int{ 10, 9 , 8 }).Contains(9)(t)
+```
+
+
+
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
