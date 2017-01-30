@@ -34,12 +34,19 @@ expect.TheValue(nil).toNotExist()(t)
 
 Asserts that `someValue` is strictly equal to `expectedValue`.
 
+```js
+expect.TheValue([1,2,3,4]).toBe([1,2,3,4])(t)
+```
+
 ### toNotBe
 
 > `expect(someValue).toNotBe(expectedValue)(t)`
 
 Asserts that `someValue` is not strictly equal to `expectedValue`.
 
+```js
+expect.TheValue([1,2,3,4]).toBe([1,2,3,5])(t)
+```
 
 ### toBeLessThan
 
