@@ -8,6 +8,8 @@ When you use go-expect, you write assertions similarly to how you would say them
 $ go get github.com/viniciusmarson/go-expect/expect
 ```
 
+## Features: 
+
 ### ToExist
 
 > `expect.TheValue(someValue).ToExist()(t)`
@@ -115,7 +117,13 @@ Asserts the given `slice` contains the `value`.
 expect.TheValue([]int{ 10, 9 , 8 }).Contains(9)(t)
 ```
 
+## Example:
 
+```js
+func TestContains(t *testing.T) {
+	TheValue([]int{10,9,8}).Contains(10)(t)
+}
+```
 
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
