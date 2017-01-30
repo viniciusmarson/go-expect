@@ -1,6 +1,9 @@
 package expect
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 //Info store the value and the expect methods
 type Info struct {
@@ -15,8 +18,28 @@ func TheValue(i interface{}) Info {
 //ToBe asserts that object is strictly equal to value.
 func (i Info) ToBe(theExpectedValue interface{}) func(t *testing.T) {
 	return func(t *testing.T) {
-		if i.value != theExpectedValue {
-			t.Errorf("Expected the value %v to be %v", i.value, theExpectedValue)
+		valueType := reflect.TypeOf(i.value).Kind()
+		theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
+
+		if valueType != theExpectedValueType {
+			t.Errorf("The expected value is a %v and the value is a %v", theExpectedValueType, valueType)
+		} else {
+			switch valueType {
+			case reflect.Slice:
+				s := reflect.ValueOf(theExpectedValue)
+				value := reflect.ValueOf(i.value)
+
+				for j := 0; j < s.Len(); j++ {
+					if s.Index(j) != value.Index(j) {
+						t.Errorf("Expected the value %v to be %v", i.value, theExpectedValue)
+						break
+					}
+				}
+			default:
+				if i.value != theExpectedValue {
+					t.Errorf("Expected the value %v to be %v", i.value, theExpectedValue)
+				}
+			}
 		}
 	}
 }
@@ -24,8 +47,33 @@ func (i Info) ToBe(theExpectedValue interface{}) func(t *testing.T) {
 //ToNotBe asserts that object is not strictly equal to value.
 func (i Info) ToNotBe(theNotExpectedValue interface{}) func(t *testing.T) {
 	return func(t *testing.T) {
-		if i.value == theNotExpectedValue {
-			t.Errorf("Expected the value %v to not be %v", i.value, theNotExpectedValue)
+		valueType := reflect.TypeOf(i.value).Kind()
+		theNotExpectedValueType := reflect.TypeOf(theNotExpectedValue).Kind()
+
+		if valueType != theNotExpectedValueType {
+			t.Errorf("The not expected value is a %v and the value is a %v", theNotExpectedValueType, valueType)
+		} else {
+			switch valueType {
+			case reflect.Slice:
+				s := reflect.ValueOf(theNotExpectedValueType)
+				value := reflect.ValueOf(i.value)
+
+				hasSomeValueDifferent := false
+				for j := 0; j < s.Len(); j++ {
+					if s.Index(j) != value.Index(j) {
+						hasSomeValueDifferent = true
+						break
+					}
+				}
+
+				if hasSomeValueDifferent {
+					t.Errorf("Expected the value %v to not be %v", i.value, theNotExpectedValue)
+				}
+			default:
+				if i.value == theNotExpectedValue {
+					t.Errorf("Expected the value %v to not be %v", i.value, theNotExpectedValue)
+				}
+			}
 		}
 	}
 }

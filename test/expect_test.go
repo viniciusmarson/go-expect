@@ -8,6 +8,8 @@ import (
 
 func TestToBe(t *testing.T) {
 	expect.TheValue(10).ToBe(10)(t)
+	array := []int{1, 2, 3, 4}
+	expect.TheValue(array).ToBe(array)(t)
 }
 
 func TestToNotBe(t *testing.T) {
@@ -30,4 +32,12 @@ func TestToBeGreaterThanOrEqualTo(t *testing.T) {
 
 func TestToBeGreaterThan(t *testing.T) {
 	expect.TheValue(10).ToBeGreaterThan(9)(t)
+}
+
+func TestToExist(t *testing.T) {
+	expect.TheValue(10).ToExist()(t)
+}
+
+func TestToNotExist(t *testing.T) {
+	expect.TheValue(nil).ToNotExist()(t)
 }
