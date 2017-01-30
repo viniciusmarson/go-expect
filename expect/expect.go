@@ -1,3 +1,4 @@
+//Package expect lets you write better assertions
 package expect
 
 import (
