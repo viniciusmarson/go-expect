@@ -120,8 +120,15 @@ expect.TheValue([]int{ 10, 9 , 8 }).Contains(9)(t)
 ## Example:
 
 ```js
+package main
+
+import (
+  "testing"
+  "github.com/viniciusmarson/go-expect/expect"
+)
+
 func TestContains(t *testing.T) {
-	TheValue([]int{10,9,8}).Contains(10)(t)
+   expect.TheValue([]int{10,9,8}).Contains(10)(t)
 }
 ```
 
