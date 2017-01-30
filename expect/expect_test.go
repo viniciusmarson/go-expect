@@ -44,6 +44,6 @@ func TestToNotExist(t *testing.T) {
 	TheValue(nil).ToNotExist()(t)
 }
 
-func TestContains(t *testing.T) {
-	TheValue([]int{10,9,8}).Contains(10)(t)
+func TestToInclude(t *testing.T) {
+	TheValue([]int{10,9,8}).ToInclude(10)(t)
 }

@@ -107,14 +107,14 @@ expect.TheValue(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
 
 
-### Contains
+### ToInclude
 
-> `expect.TheValue(slice).Contains(value)(t)`
+> `expect.TheValue(slice).ToInclude(value)(t)`
 
 Asserts the given `slice` contains the `value`.
 
 ```js
-expect.TheValue([]int{ 10, 9 , 8 }).Contains(9)(t)
+expect.TheValue([]int{ 10, 9 , 8 }).ToInclude(9)(t)
 ```
 
 ## Example:
@@ -127,8 +127,8 @@ import (
   "github.com/viniciusmarson/go-expect/expect"
 )
 
-func TestContains(t *testing.T) {
-   expect.TheValue([]int{10,9,8}).Contains(10)(t)
+func TestToInclude(t *testing.T) {
+   expect.TheValue([]int{10,9,8}).ToInclude(10)(t)
 }
 ```
 

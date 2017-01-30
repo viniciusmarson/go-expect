@@ -153,8 +153,8 @@ func (i Info) ToNotExist() func(t *testing.T) {
 	}
 }
 
-//Contains asserts the given array contains the informed value 
-func (i Info) Contains(theExpectedValue interface{}) func(t *testing.T) {
+//ToInclude asserts the given array contains the informed value 
+func (i Info) ToInclude(theExpectedValue interface{}) func(t *testing.T) {
 	return func(t *testing.T) {
 
 		valueType := reflect.TypeOf(i.value).Kind()
