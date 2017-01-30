@@ -30,7 +30,7 @@ func (i Info) ToBe(theExpectedValue interface{}) func(t *testing.T) {
 				value := reflect.ValueOf(i.value)
 
 				for j := 0; j < s.Len(); j++ {
-					if s.Index(j) != value.Index(j) {
+					if s.Index(j).Interface() != value.Index(j).Interface() {
 						t.Errorf("Expected the value %v to be %v", i.value, theExpectedValue)
 						break
 					}
@@ -55,18 +55,18 @@ func (i Info) ToNotBe(theNotExpectedValue interface{}) func(t *testing.T) {
 		} else {
 			switch valueType {
 			case reflect.Slice:
-				s := reflect.ValueOf(theNotExpectedValueType)
+				s := reflect.ValueOf(theNotExpectedValue)
 				value := reflect.ValueOf(i.value)
 
 				hasSomeValueDifferent := false
 				for j := 0; j < s.Len(); j++ {
-					if s.Index(j) != value.Index(j) {
+					if s.Index(j).Interface() != value.Index(j).Interface() {
 						hasSomeValueDifferent = true
 						break
 					}
 				}
 
-				if hasSomeValueDifferent {
+				if !hasSomeValueDifferent {
 					t.Errorf("Expected the value %v to not be %v", i.value, theNotExpectedValue)
 				}
 			default:

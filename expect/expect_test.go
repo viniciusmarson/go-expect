@@ -6,12 +6,16 @@ import (
 
 func TestToBe(t *testing.T) {
 	TheValue(10).ToBe(10)(t)
-	array := []int{1, 2, 3, 4}
-	TheValue(array).ToBe(array)(t)
+	x := []int{10, 20, 30, 4, 5, 6, 7, 8, 9, 10}
+	y := []int{10, 20, 30, 4, 5, 6, 7, 8, 9, 10}
+	TheValue(x).ToBe(y)(t)
 }
 
 func TestToNotBe(t *testing.T) {
 	TheValue(10).ToNotBe(9)(t)
+	x := []int{10, 2, 30, 4, 5, 6, 7, 8, 9, 10}
+	y := []int{10, 20, 30, 4, 5, 6, 7, 8, 9, 10}
+	TheValue(x).ToNotBe(y)(t)
 }
 
 func TestToBeLessThanOrEqualTo(t *testing.T) {
