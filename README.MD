@@ -48,7 +48,7 @@ expect.This([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })(t)
 Asserts that `value` is not strictly equal to `expectedValue`.
 
 ```js
-expect.This([]int{ 1, 2, 3, 4 }).ToBe([]int{ 4, 3, 2, 1 })(t)
+expect.This([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })(t)
 ```
 
 
