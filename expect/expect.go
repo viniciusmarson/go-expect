@@ -12,7 +12,7 @@ type Info struct {
 }
 
 //TheValue recive the data to use for assurance
-func TheValue(i interface{}) Info {
+func This(i interface{}) Info {
 	return Info{value: i}
 }
 

@@ -12,109 +12,109 @@ $ go get github.com/viniciusmarson/go-expect/expect
 
 ### ToExist
 
-> `expect.TheValue(someValue).ToExist()(t)`
+> `expect.This(value).ToExist()(t)`
 
 Asserts the given `value` is not nil.
 
 ```js
-expect.TheValue('something truthy').ToExist()(t)
+expect.This('something truthy').ToExist()(t)
 ```
 
 ### ToNotExist
 
-> `expect.TheValue(someValue).ToNotExist()(t)`
+> `expect.This(value).ToNotExist()(t)`
 
 Asserts the given `value` is nil.
 
 ```js
-expect.TheValue(nil).ToNotExist()(t)
+expect.This(nil).ToNotExist()(t)
 ```
 
 ### ToBe
 
-> `expect.TheValue(someValue).ToBe(expectedValue)(t)`
+> `expect.This(value).ToBe(expectedValue)(t)`
 
-Asserts that `someValue` is strictly equal to `expectedValue`.
+Asserts that `value` is strictly equal to `expectedValue`.
 
 ```js
-expect.TheValue([]int{ 1, 2, 3, 4 }).toBe([]int{ 1, 2, 3, 4 })(t)
+expect.This([]int{ 1, 2, 3, 4 }).toBe([]int{ 1, 2, 3, 4 })(t)
 ```
 
 
 ### ToNotBe
 
-> `expect(someValue).ToNotBe(expectedValue)(t)`
+> `expect(value).ToNotBe(expectedValue)(t)`
 
-Asserts that `someValue` is not strictly equal to `expectedValue`.
+Asserts that `value` is not strictly equal to `expectedValue`.
 
 ```js
-expect.TheValue([]int{ 1, 2, 3, 4 }).toBe([]int{ 4, 3, 2, 1 })(t)
+expect.This([]int{ 1, 2, 3, 4 }).toBe([]int{ 4, 3, 2, 1 })(t)
 ```
 
 
 ### ToBeLessThan
 
-> `expect.TheValue(number).ToBeLessThan(value)(t)`
+> `expect.This(number).ToBeLessThan(value)(t)`
 
 Asserts the given `number` is less than `value`.
 
 ```js
-expect.TheValue(2).ToBeLessThan(3)(t)
+expect.This(2).ToBeLessThan(3)(t)
 ```
 
 
 ### ToBeLessThanOrEqualTo
 
-> `expect.TheValue(number).ToBeLessThanOrEqualTo(value)(t)`
+> `expect.This(number).ToBeLessThanOrEqualTo(value)(t)`
 
 Asserts the given `number` is less than or equal to `value`.
 
 ```js
-expect.TheValue(2).ToBeLessThanOrEqualTo(3)(t)
+expect.This(2).ToBeLessThanOrEqualTo(3)(t)
 ```
 
 
 ### ToBeGreaterThan
 
-> `expectTheValue(number).ToBeGreaterThan(valu)(t)`
+> `expectThis(number).ToBeGreaterThan(valu)(t)`
 
 Asserts the given `number` is greater than `value`.
 
 ```js
-expect.TheValue(3).ToBeGreaterThan(2)(t)
+expect.This(3).ToBeGreaterThan(2)(t)
 ```
 
 
 ### ToBeGreaterThanOrEqualTo
 
-> `expect.TheValue(number).ToBeGreaterThanOrEqualTo(value)(t)`
+> `expect.This(number).ToBeGreaterThanOrEqualTo(value)(t)`
 
 Asserts the given `number` is greater than or equal to `value`.
 
 ```js
-expect.TheValue(3).ToBeGreaterThanOrEqualTo(2)(t)
+expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
 
 
 ### ToBeGreaterThanOrEqualTo
 
-> `expect.TheValue(number).ToBeGreaterThanOrEqualTo(value)(t)`
+> `expect.This(number).ToBeGreaterThanOrEqualTo(value)(t)`
 
 Asserts the given `number` is greater than or equal to `value`.
 
 ```js
-expect.TheValue(3).ToBeGreaterThanOrEqualTo(2)(t)
+expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
 
 
 ### ToInclude
 
-> `expect.TheValue(slice).ToInclude(value)(t)`
+> `expect.This(slice).ToInclude(value)(t)`
 
 Asserts the given `slice` contains the `value`.
 
 ```js
-expect.TheValue([]int{ 10, 9 , 8 }).ToInclude(9)(t)
+expect.This([]int{ 10, 9 , 8 }).ToInclude(9)(t)
 ```
 
 ## Example:
@@ -128,7 +128,7 @@ import (
 )
 
 func TestToInclude(t *testing.T) {
-   expect.TheValue([]int{10,9,8}).ToInclude(10)(t)
+   expect.This([]int{10,9,8}).ToInclude(10)(t)
 }
 ```
 
