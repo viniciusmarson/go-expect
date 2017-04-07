@@ -1,6 +1,11 @@
 # go-expect
 
+[![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/derekparker/delve/master/LICENSE) [![GoDoc](https://godoc.org/github.com/derekparker/delve?status.svg)](https://godoc.org/github.com/derekparker/delve) [![Build Status](https://travis-ci.org/derekparker/delve.svg?branch=travis-ci)](https://travis-ci.org/derekparker/delve)
+
+
 When you use go-expect, you write assertions similarly to how you would say them, e.g. "I expect this value to be equal to 3" or "I expect this array to contain 3". When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
+
+
 
 ## Installing:
 
@@ -16,7 +21,7 @@ $ go get github.com/viniciusmarson/go-expect/expect
 
 Asserts the given `value` is not nil.
 
-```js
+```go
 expect.This('something truthy').ToExist()(t)
 ```
 
@@ -26,7 +31,7 @@ expect.This('something truthy').ToExist()(t)
 
 Asserts the given `value` is nil.
 
-```js
+```go
 expect.This(nil).ToNotExist()(t)
 ```
 
@@ -36,18 +41,18 @@ expect.This(nil).ToNotExist()(t)
 
 Asserts that `value` is strictly equal to `expectedValue`.
 
-```js
+```go
 expect.This([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })(t)
 ```
 
 
 ### ToNotBe
 
-> `expect(value).ToNotBe(expectedValue)(t)`
+> `expect.This(value).ToNotBe(expectedValue)(t)`
 
 Asserts that `value` is not strictly equal to `expectedValue`.
 
-```js
+```go
 expect.This([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })(t)
 ```
 
@@ -58,7 +63,7 @@ expect.This([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })(t)
 
 Asserts the given `number` is less than `value`.
 
-```js
+```go
 expect.This(2).ToBeLessThan(3)(t)
 ```
 
@@ -69,18 +74,18 @@ expect.This(2).ToBeLessThan(3)(t)
 
 Asserts the given `number` is less than or equal to `value`.
 
-```js
+```go
 expect.This(2).ToBeLessThanOrEqualTo(3)(t)
 ```
 
 
 ### ToBeGreaterThan
 
-> `expectThis(number).ToBeGreaterThan(valu)(t)`
+> `expect.This(number).ToBeGreaterThan(valu)(t)`
 
 Asserts the given `number` is greater than `value`.
 
-```js
+```go
 expect.This(3).ToBeGreaterThan(2)(t)
 ```
 
@@ -91,7 +96,7 @@ expect.This(3).ToBeGreaterThan(2)(t)
 
 Asserts the given `number` is greater than or equal to `value`.
 
-```js
+```go
 expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
 
@@ -102,7 +107,7 @@ expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 
 Asserts the given `number` is greater than or equal to `value`.
 
-```js
+```go
 expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 ```
 
@@ -113,13 +118,13 @@ expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
 
 Asserts the given `slice` contains the `value`.
 
-```js
+```go
 expect.This([]int{ 10, 9 , 8 }).ToInclude(9)(t)
 ```
 
 ## Example:
 
-```js
+```go
 package main
 
 import (

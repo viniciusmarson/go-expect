@@ -11,7 +11,7 @@ type Info struct {
 	value interface{}
 }
 
-//TheValue recive the data to use for assurance
+//This recive the data to use for assurance
 func This(i interface{}) Info {
 	return Info{value: i}
 }
@@ -153,13 +153,13 @@ func (i Info) ToNotExist() func(t *testing.T) {
 	}
 }
 
-//ToInclude asserts the given array contains the informed value 
+//ToInclude asserts the given array contains the informed value
 func (i Info) ToInclude(theExpectedValue interface{}) func(t *testing.T) {
 	return func(t *testing.T) {
 
 		valueType := reflect.TypeOf(i.value).Kind()
 		theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
-		
+
 		value := reflect.ValueOf(i.value)
 
 		if valueType != reflect.Slice {
@@ -170,7 +170,7 @@ func (i Info) ToInclude(theExpectedValue interface{}) func(t *testing.T) {
 
 			sliceType := reflect.TypeOf(value.Index(0).Interface()).Kind()
 
-			if sliceType !=  theExpectedValueType {
+			if sliceType != theExpectedValueType {
 				t.Errorf("The expected value informed is of type %v and the slice is of type %v", theExpectedValueType, sliceType)
 			} else {
 
@@ -184,7 +184,7 @@ func (i Info) ToInclude(theExpectedValue interface{}) func(t *testing.T) {
 				}
 
 				if !found {
-					t.Errorf("Informed value %v not found in slice %v", theExpectedValue,  i.value)
+					t.Errorf("Informed value %v not found in slice %v", theExpectedValue, i.value)
 				}
 			}
 		}

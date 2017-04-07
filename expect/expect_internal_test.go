@@ -45,5 +45,5 @@ func TestToNotExist(t *testing.T) {
 }
 
 func TestToInclude(t *testing.T) {
-	This([]int{10,9,8}).ToInclude(10)(t)
+	This([]int{10, 9, 8}).ToInclude(10)(t)
 }
