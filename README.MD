@@ -1,7 +1,6 @@
 # go-expect
 
-[![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/viniciusmarson/go-expect/blob/master/LICENSE) [![GoDoc]
-
+[![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/viniciusmarson/go-expect/blob/master/LICENSE)
 
 When you use go-expect, you write assertions similarly to how you would say them, e.g. "I expect this value to be equal to 3" or "I expect this array to contain 3". When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
 
