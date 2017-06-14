@@ -1,6 +1,6 @@
 # go-expect
 
-[![license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/viniciusmarson/go-expect/blob/master/LICENSE)
+![license](http://img.shields.io/badge/license-MIT-blue.svg)
 
 When you use go-expect, you write assertions similarly to how you would say them, e.g. "I expect this value to be equal to 3" or "I expect this array to contain 3". When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
 
@@ -12,113 +12,118 @@ When you use go-expect, you write assertions similarly to how you would say them
 $ go get github.com/viniciusmarson/go-expect/expect
 ```
 
+OBS: Always initialize the expect 
+
+> `expect := expect.New(t)`
+
+
 ## Features: 
 
 ### ToExist
 
-> `expect.This(value).ToExist()(t)`
+> `expect(value).ToExist()`
 
 Asserts the given `value` is not nil.
 
 ```go
-expect.This('something truthy').ToExist()(t)
+expect('something truthy').ToExist()
 ```
 
 ### ToNotExist
 
-> `expect.This(value).ToNotExist()(t)`
+> `expect(value).ToNotExist()`
 
 Asserts the given `value` is nil.
 
 ```go
-expect.This(nil).ToNotExist()(t)
+expect(nil).ToNotExist()
 ```
 
 ### ToBe
 
-> `expect.This(value).ToBe(expectedValue)(t)`
+> `expect(value).ToBe(expectedValue)`
 
 Asserts that `value` is strictly equal to `expectedValue`.
 
 ```go
-expect.This([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })(t)
+expect([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })
 ```
 
 
 ### ToNotBe
 
-> `expect.This(value).ToNotBe(expectedValue)(t)`
+> `expect(value).ToNotBe(expectedValue)`
 
 Asserts that `value` is not strictly equal to `expectedValue`.
 
 ```go
-expect.This([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })(t)
+expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
 
 ### ToBeLessThan
 
-> `expect.This(number).ToBeLessThan(value)(t)`
+> `expect(number).ToBeLessThan(value)`
 
 Asserts the given `number` is less than `value`.
 
 ```go
-expect.This(2).ToBeLessThan(3)(t)
+expect(2).ToBeLessThan(3)
 ```
 
 
 ### ToBeLessThanOrEqualTo
 
-> `expect.This(number).ToBeLessThanOrEqualTo(value)(t)`
+> `expect(number).ToBeLessThanOrEqualTo(value)`
 
 Asserts the given `number` is less than or equal to `value`.
 
 ```go
-expect.This(2).ToBeLessThanOrEqualTo(3)(t)
+expect(2).ToBeLessThanOrEqualTo(3)
 ```
 
 
 ### ToBeGreaterThan
 
-> `expect.This(number).ToBeGreaterThan(valu)(t)`
+> `expect(number).ToBeGreaterThan(valu)`
 
 Asserts the given `number` is greater than `value`.
 
 ```go
-expect.This(3).ToBeGreaterThan(2)(t)
+expect(3).ToBeGreaterThan(2)
 ```
 
 
 ### ToBeGreaterThanOrEqualTo
 
-> `expect.This(number).ToBeGreaterThanOrEqualTo(value)(t)`
+> `expect(number).ToBeGreaterThanOrEqualTo(value)`
 
 Asserts the given `number` is greater than or equal to `value`.
 
 ```go
-expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
+expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
 
 ### ToBeGreaterThanOrEqualTo
 
-> `expect.This(number).ToBeGreaterThanOrEqualTo(value)(t)`
+> `expect(number).ToBeGreaterThanOrEqualTo(value)`
 
 Asserts the given `number` is greater than or equal to `value`.
 
 ```go
-expect.This(3).ToBeGreaterThanOrEqualTo(2)(t)
+expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
 
 ### ToInclude
 
-> `expect.This(slice).ToInclude(value)(t)`
+> `expect(slice).ToInclude(value)`
 
 Asserts the given `slice` contains the `value`.
 
 ```go
-expect.This([]int{ 10, 9 , 8 }).ToInclude(9)(t)
+expect([]int{ 10, 9 , 8 }).ToInclude(9)
 ```
 
 ## Example:
@@ -132,14 +137,14 @@ import (
 )
 
 func TestToInclude(t *testing.T) {
-   expect.This([]int{10,9,8}).ToInclude(10)(t)
+   expect([]int{10,9,8}).ToInclude(10)
 }
 
 func TestBubbleSort(t *testing.T) {
 	theExpectedResponse := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	response := []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
 	BubbleSort(response)
-	expect.This(response).ToBe(theExpectedResponse)(t)
+	expect(response).ToBe(theExpectedResponse)
 }
 ```
 
