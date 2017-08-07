@@ -13,10 +13,30 @@ When you use go-expect, you write assertions similarly to how you would say them
 $ go get github.com/viniciusmarson/go-expect/expect
 ```
 
-OBS: Always initialize the expect 
 
-> `expect := expect.New(t)`
+## Example:
 
+```go
+package main
+
+import (
+  "testing"
+  "github.com/viniciusmarson/go-expect/expect"
+)
+
+func TestToInclude(t *testing.T) {
+   expect := expect.New(t)
+   expect([]int{10,9,8}).ToInclude(10)
+}
+
+func TestBubbleSort(t *testing.T) {
+	expect := expect.New(t)
+	theExpectedResponse := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	response := []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+	BubbleSort(response)
+	expect(response).ToBe(theExpectedResponse)
+}
+```
 
 
 ## Features: 
@@ -130,30 +150,5 @@ Asserts the given `slice` contains the `value`.
 ```go
 expect([]int{ 10, 9 , 8 }).ToInclude(9)
 ```
-
-## Example:
-
-```go
-package main
-
-import (
-  "testing"
-  "github.com/viniciusmarson/go-expect/expect"
-)
-
-func TestToInclude(t *testing.T) {
-   expect := expect.New(t)
-   expect([]int{10,9,8}).ToInclude(10)
-}
-
-func TestBubbleSort(t *testing.T) {
-	expect := expect.New(t)
-	theExpectedResponse := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	response := []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
-	BubbleSort(response)
-	expect(response).ToBe(theExpectedResponse)
-}
-```
-
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
