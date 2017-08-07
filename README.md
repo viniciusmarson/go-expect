@@ -1,5 +1,3 @@
-# go-expect
-
 ![license](http://img.shields.io/badge/license-MIT-blue.svg)
 
 ![Golang testing](https://cdn-images-1.medium.com/max/800/1*8jnAiQdv4Vxh5AH3-2uswA.jpeg)
