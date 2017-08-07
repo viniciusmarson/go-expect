@@ -4,7 +4,7 @@
 
 ![Golang testing](https://cdn-images-1.medium.com/max/800/1*8jnAiQdv4Vxh5AH3-2uswA.jpeg)
 
-When you use go-expect, you write assertions similarly to how you would say them, e.g. "I expect this value to be equal to 3" or "I expect this array to contain 3". When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
+When you use go-expect, you write beautiful assertions as if you were writing a text. When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
 
 
 ## Installing:
