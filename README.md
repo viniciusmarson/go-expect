@@ -2,10 +2,11 @@
 
 ![license](http://img.shields.io/badge/license-MIT-blue.svg)
 
+![Golang testing](https://cdn-images-1.medium.com/max/800/1*8jnAiQdv4Vxh5AH3-2uswA.jpeg)
+
 When you use go-expect, you write assertions similarly to how you would say them, e.g. "I expect this value to be equal to 3" or "I expect this array to contain 3". When you write assertions in this way, you don't need to remember the order of actual and expected arguments to functions like assert.equal, which helps you write better tests.
 
-
-
+#
 ## Installing:
 
 ```sh
@@ -17,8 +18,10 @@ OBS: Always initialize the expect
 > `expect := expect.New(t)`
 
 
+#
 ## Features: 
 
+#
 ### ToExist
 
 > `expect(value).ToExist()`
@@ -26,9 +29,10 @@ OBS: Always initialize the expect
 Asserts the given `value` is not nil.
 
 ```go
-expect('something truthy').ToExist()
+expect("something truthy").ToExist()
 ```
 
+#
 ### ToNotExist
 
 > `expect(value).ToNotExist()`
@@ -39,6 +43,7 @@ Asserts the given `value` is nil.
 expect(nil).ToNotExist()
 ```
 
+#
 ### ToBe
 
 > `expect(value).ToBe(expectedValue)`
@@ -49,7 +54,7 @@ Asserts that `value` is strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })
 ```
 
-
+#
 ### ToNotBe
 
 > `expect(value).ToNotBe(expectedValue)`
@@ -60,7 +65,7 @@ Asserts that `value` is not strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
-
+#
 ### ToBeLessThan
 
 > `expect(number).ToBeLessThan(value)`
@@ -71,7 +76,7 @@ Asserts the given `number` is less than `value`.
 expect(2).ToBeLessThan(3)
 ```
 
-
+#
 ### ToBeLessThanOrEqualTo
 
 > `expect(number).ToBeLessThanOrEqualTo(value)`
@@ -82,7 +87,7 @@ Asserts the given `number` is less than or equal to `value`.
 expect(2).ToBeLessThanOrEqualTo(3)
 ```
 
-
+#
 ### ToBeGreaterThan
 
 > `expect(number).ToBeGreaterThan(valu)`
@@ -93,7 +98,7 @@ Asserts the given `number` is greater than `value`.
 expect(3).ToBeGreaterThan(2)
 ```
 
-
+#
 ### ToBeGreaterThanOrEqualTo
 
 > `expect(number).ToBeGreaterThanOrEqualTo(value)`
@@ -104,7 +109,7 @@ Asserts the given `number` is greater than or equal to `value`.
 expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
-
+#
 ### ToBeGreaterThanOrEqualTo
 
 > `expect(number).ToBeGreaterThanOrEqualTo(value)`
@@ -115,7 +120,7 @@ Asserts the given `number` is greater than or equal to `value`.
 expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
-
+#
 ### ToInclude
 
 > `expect(slice).ToInclude(value)`
