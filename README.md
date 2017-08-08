@@ -149,4 +149,8 @@ Asserts the given `slice` contains the `value`.
 expect([]int{ 10, 9 , 8 }).ToInclude(9)
 ```
 
+## TODO 
+
+* ToExclude
+
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
