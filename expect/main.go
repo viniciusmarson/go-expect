@@ -11,24 +11,22 @@ var (
 	t *testing.T
 )
 
-//Info store the value and the expect methods
-type Info struct {
+type info struct {
 	value interface{}
 }
 
-//New will initialize
-func New(teste *testing.T) func(i interface{}) Info {
+func valueToAssert(i interface{}) info {
+	return info{value: i}
+}
+
+//New will initialize the expect function
+func New(teste *testing.T) func(i interface{}) info {
 	t = teste
 	return valueToAssert
 }
 
-//valueToAssert recive the data to use for assurance
-func valueToAssert(i interface{}) Info {
-	return Info{value: i}
-}
-
 //ToBeTrue asserts that the value is true
-func (i Info) ToBeTrue() {
+func (i info) ToBeTrue() {
 	valueType := reflect.TypeOf(i.value).Kind()
 	if valueType != reflect.Bool {
 		t.Errorf("The value is a %v and not a boolean", valueType)
@@ -41,7 +39,7 @@ func (i Info) ToBeTrue() {
 }
 
 //ToBeFalse asserts that the value is false
-func (i Info) ToBeFalse() {
+func (i info) ToBeFalse() {
 	valueType := reflect.TypeOf(i.value).Kind()
 	if valueType != reflect.Bool {
 		t.Errorf("The value is a %v and not a boolean", valueType)
@@ -53,8 +51,8 @@ func (i Info) ToBeFalse() {
 	}
 }
 
-//ToBe asserts that object is strictly equal to value.
-func (i Info) ToBe(theExpectedValue interface{}) {
+//ToBe asserts that object is strictly equal to the informed value.
+func (i info) ToBe(theExpectedValue interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
 
@@ -80,8 +78,8 @@ func (i Info) ToBe(theExpectedValue interface{}) {
 	}
 }
 
-//ToNotBe asserts that object is not strictly equal to value.
-func (i Info) ToNotBe(theNotExpectedValue interface{}) {
+//ToNotBe asserts that object is not strictly equal to the informed value.
+func (i info) ToNotBe(theNotExpectedValue interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	theNotExpectedValueType := reflect.TypeOf(theNotExpectedValue).Kind()
 
@@ -112,8 +110,8 @@ func (i Info) ToNotBe(theNotExpectedValue interface{}) {
 	}
 }
 
-//Contains will check if the string contains some value
-func (i Info) Contains(contains interface{}) {
+//Contains will check if the string contains some informed value
+func (i info) Contains(contains interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	containsType := reflect.TypeOf(contains).Kind()
 
@@ -130,8 +128,8 @@ func (i Info) Contains(contains interface{}) {
 	}
 }
 
-//NotContains will check if the string not contains some value
-func (i Info) NotContains(contains interface{}) {
+//NotContains will check if the string not contains some informed value
+func (i info) NotContains(contains interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	containsType := reflect.TypeOf(contains).Kind()
 
@@ -148,8 +146,8 @@ func (i Info) NotContains(contains interface{}) {
 	}
 }
 
-//ToBeLessThanOrEqualTo asserts the given number is less than or equal to value.
-func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue int) {
+//ToBeLessThanOrEqualTo asserts the given number is less than or equal to the informed value.
+func (i info) ToBeLessThanOrEqualTo(theNotExpectedValue int) {
 	value, ok := i.value.(int)
 	if ok {
 		if value > theNotExpectedValue {
@@ -160,8 +158,8 @@ func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue int) {
 	}
 }
 
-//ToBeLessThan asserts the given number is less than the value.
-func (i Info) ToBeLessThan(theNotExpectedValue int) {
+//ToBeLessThan asserts the given number is less than the informed value.
+func (i info) ToBeLessThan(theNotExpectedValue int) {
 	value, ok := i.value.(int)
 	if ok {
 		if value >= theNotExpectedValue {
@@ -172,8 +170,8 @@ func (i Info) ToBeLessThan(theNotExpectedValue int) {
 	}
 }
 
-//ToBeGreaterThanOrEqualTo asserts the given number is greater than or equal to value.
-func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue int) {
+//ToBeGreaterThanOrEqualTo asserts the given number is greater than or equal to the informed value.
+func (i info) ToBeGreaterThanOrEqualTo(theNotExpectedValue int) {
 	value, ok := i.value.(int)
 	if ok {
 		if value < theNotExpectedValue {
@@ -184,8 +182,8 @@ func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue int) {
 	}
 }
 
-//ToBeGreaterThan asserts the given number is greater than the value.
-func (i Info) ToBeGreaterThan(theNotExpectedValue int) {
+//ToBeGreaterThan asserts the given number is greater than the informed value.
+func (i info) ToBeGreaterThan(theNotExpectedValue int) {
 	value, ok := i.value.(int)
 	if ok {
 		if value <= theNotExpectedValue {
@@ -197,21 +195,21 @@ func (i Info) ToBeGreaterThan(theNotExpectedValue int) {
 }
 
 //ToExist asserts the given object is not nil.
-func (i Info) ToExist() {
+func (i info) ToExist() {
 	if i.value == nil {
 		t.Errorf("Expected to exist but got %v", i.value)
 	}
 }
 
 //ToNotExist asserts the given object is nil.
-func (i Info) ToNotExist() {
+func (i info) ToNotExist() {
 	if i.value != nil {
 		t.Errorf("Expected to not exist but got %v", i.value)
 	}
 }
 
 //ToInclude asserts the given array contains the informed value
-func (i Info) ToInclude(theExpectedValue interface{}) {
+func (i info) ToInclude(theExpectedValue interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
 
@@ -246,7 +244,7 @@ func (i Info) ToInclude(theExpectedValue interface{}) {
 }
 
 //ToExclude asserts the given array not contains the informed value
-func (i Info) ToExclude(theExpectedValue interface{}) {
+func (i info) ToExclude(theExpectedValue interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
 
@@ -281,7 +279,7 @@ func (i Info) ToExclude(theExpectedValue interface{}) {
 }
 
 //Fail force fails
-func (i Info) Fail(message string) {
+func (i info) Fail(message string) {
 	if message != "" {
 		t.Errorf(message)
 	} else {
@@ -289,14 +287,14 @@ func (i Info) Fail(message string) {
 	}
 }
 
-//ToBeAn check if the value is of some type
-func (i Info) ToBeAn(expectedType string) {
+//ToBeAn check if the informed value is of some type
+func (i info) ToBeAn(expectedType string) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	checkType(valueType, expectedType)
 }
 
-//ToBeA check if the value is of some type
-func (i Info) ToBeA(expectedType string) {
+//ToBeA check if the informed value is of some type
+func (i info) ToBeA(expectedType string) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	checkType(valueType, expectedType)
 }
