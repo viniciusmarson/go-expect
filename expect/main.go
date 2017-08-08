@@ -104,6 +104,24 @@ func (i Info) Contains(contains interface{}) {
 	}
 }
 
+//NotContains will check if the string not contains some value
+func (i Info) NotContains(contains interface{}) {
+	valueType := reflect.TypeOf(i.value).Kind()
+	containsType := reflect.TypeOf(contains).Kind()
+
+	if valueType != reflect.String || containsType != reflect.String {
+		t.Errorf("The value is a %v and the contains value is a %v", valueType, containsType)
+		return
+	}
+
+	value := i.value.(string)
+	containsValue := contains.(string)
+
+	if strings.Contains(value, containsValue) {
+		t.Errorf("%s contains %s", value, containsValue)
+	}
+}
+
 //ToBeLessThanOrEqualTo asserts the given number is less than or equal to value.
 func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue int) {
 	value, ok := i.value.(int)

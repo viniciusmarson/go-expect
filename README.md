@@ -93,6 +93,15 @@ Asserts that `string` contains `expectedString`.
 expect("banana").Contains("nana")
 ```
 
+### NotContains
+
+> `expect(string).NotContains(notExpectedString)`
+
+Asserts that `string` not contains `notExpectedString`.
+
+```go
+expect("banana").Contains("haha")
+```
 
 
 ### ToBeLessThan
@@ -139,17 +148,6 @@ expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
 
-### ToBeGreaterThanOrEqualTo
-
-> `expect(number).ToBeGreaterThanOrEqualTo(value)`
-
-Asserts the given `number` is greater than or equal to `value`.
-
-```go
-expect(3).ToBeGreaterThanOrEqualTo(2)
-```
-
-
 ### ToInclude
 
 > `expect(slice).ToInclude(value)`
@@ -169,5 +167,12 @@ Asserts the given `slice` not contains the `value`.
 ```go
 expect([]int{ 10, 9 , 8 }).ToExclude(2)
 ```
+
+
+## TODO 
+
+* ToBeTrue
+* ToBeFalse
+
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)

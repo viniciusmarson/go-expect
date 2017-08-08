@@ -25,6 +25,11 @@ func TestContains(t *testing.T) {
 	expect("banana").Contains("nana")
 }
 
+func TestNotContains(t *testing.T) {
+	expect := New(t)
+	expect("banana").NotContains("haha")
+}
+
 func TestToBeLessThanOrEqualTo(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeLessThanOrEqualTo(10)
