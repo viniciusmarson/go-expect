@@ -11,6 +11,7 @@ When you use go-expect, you write beautiful assertions as if you were writing a 
 $ go get github.com/viniciusmarson/go-expect/expect
 ```
 
+&nbsp;
 
 ## Example:
 
@@ -36,6 +37,7 @@ func TestBubbleSort(t *testing.T) {
 }
 ```
 
+&nbsp;
 
 ## Features: 
 
@@ -50,7 +52,7 @@ Asserts the given `value` is not nil.
 expect("something truthy").ToExist()
 ```
 
-
+&nbsp;
 ### ToNotExist
 
 > `expect(value).ToNotExist()`
@@ -61,7 +63,7 @@ Asserts the given `value` is nil.
 expect(nil).ToNotExist()
 ```
 
-
+&nbsp;
 ### ToBe
 
 > `expect(value).ToBe(expectedValue)`
@@ -72,7 +74,7 @@ Asserts that `value` is strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })
 ```
 
-
+&nbsp;
 ### ToNotBe
 
 > `expect(value).ToNotBe(expectedValue)`
@@ -83,6 +85,7 @@ Asserts that `value` is not strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
+&nbsp;
 ### ToBeTrue
 
 > `expect(bool).ToBeTrue()`
@@ -93,6 +96,7 @@ Asserts that `bool` is true.
 expect(true).ToBeTrue()
 ```
 
+&nbsp;
 ### ToBeFalse
 
 > `expect(bool).ToBeFalse()`
@@ -103,6 +107,7 @@ Asserts that `bool` is false.
 expect(false).ToBeFalse()
 ```
 
+&nbsp;
 ### Contains
 
 > `expect(string).Contains(expectedString)`
@@ -113,6 +118,7 @@ Asserts that `string` contains `expectedString`.
 expect("banana").Contains("nana")
 ```
 
+&nbsp;
 ### NotContains
 
 > `expect(string).NotContains(notExpectedString)`
@@ -123,7 +129,7 @@ Asserts that `string` not contains `notExpectedString`.
 expect("banana").Contains("haha")
 ```
 
-
+&nbsp;
 ### ToBeLessThan
 
 > `expect(number).ToBeLessThan(value)`
@@ -134,7 +140,7 @@ Asserts the given `number` is less than `value`.
 expect(2).ToBeLessThan(3)
 ```
 
-
+&nbsp;
 ### ToBeLessThanOrEqualTo
 
 > `expect(number).ToBeLessThanOrEqualTo(value)`
@@ -145,7 +151,7 @@ Asserts the given `number` is less than or equal to `value`.
 expect(2).ToBeLessThanOrEqualTo(3)
 ```
 
-
+&nbsp;
 ### ToBeGreaterThan
 
 > `expect(number).ToBeGreaterThan(valu)`
@@ -156,7 +162,7 @@ Asserts the given `number` is greater than `value`.
 expect(3).ToBeGreaterThan(2)
 ```
 
-
+&nbsp;
 ### ToBeGreaterThanOrEqualTo
 
 > `expect(number).ToBeGreaterThanOrEqualTo(value)`
@@ -167,7 +173,7 @@ Asserts the given `number` is greater than or equal to `value`.
 expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
-
+&nbsp;
 ### ToInclude
 
 > `expect(slice).ToInclude(value)`
@@ -178,6 +184,7 @@ Asserts the given `slice` contains the `value`.
 expect([]int{ 10, 9 , 8 }).ToInclude(9)
 ```
 
+&nbsp;
 ### ToExclude
 
 > `expect(slice).ToExclude(value)`
@@ -188,7 +195,7 @@ Asserts the given `slice` not contains the `value`.
 expect([]int{ 10, 9 , 8 }).ToExclude(2)
 ```
 
-
+&nbsp;
 ## TODO 
 
 
