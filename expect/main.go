@@ -292,6 +292,16 @@ func (i Info) Fail(message string) {
 //ToBeAn check if the value is of some type
 func (i Info) ToBeAn(expectedType string) {
 	valueType := reflect.TypeOf(i.value).Kind()
+	checkType(valueType, expectedType)
+}
+
+//ToBeA check if the value is of some type
+func (i Info) ToBeA(expectedType string) {
+	valueType := reflect.TypeOf(i.value).Kind()
+	checkType(valueType, expectedType)
+}
+
+func checkType(valueType reflect.Kind, expectedType string) {
 	var error = false
 
 	switch expectedType {

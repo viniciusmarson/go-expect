@@ -86,19 +86,19 @@ expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
 &nbsp;
-### ToBeAn
+### ToBeAn and ToBeA
 
 > `expect(value).ToBeAn(expectedType)`
 
 Asserts that `value` is of the type `expectedType`.
 
 ```go
-expect("test").ToBe("string")
-expect(true).ToBe("bool")
-expect(10).ToBe("int")
-expect([]int{}).ToBe("slice")
-expect(`some interface{}`).ToBe("interface")
-expect(`some struct`).ToBe("struct")
+expect("test").ToBeA("string")
+expect(true).ToBeA("bool")
+expect(10).ToBeAn("int")
+expect([]int{}).ToBeA("slice")
+expect(`some interface{}`).ToBeAn("interface")
+expect(`some struct`).ToBeA("struct")
 ```
 
 

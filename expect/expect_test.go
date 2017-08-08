@@ -82,7 +82,12 @@ func TestToExclude(t *testing.T) {
 	expect([]int{10, 9, 8}).ToExclude(2)
 }
 
+func TestToBeA(t *testing.T) {
+	expect := New(t)
+	expect("test").ToBeA("string")
+}
+
 func TestToBeAn(t *testing.T) {
 	expect := New(t)
-	expect("test").ToBeAn("string")
+	expect(10).ToBeA("int")
 }
