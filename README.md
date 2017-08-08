@@ -83,6 +83,26 @@ Asserts that `value` is not strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
+### ToBeTrue
+
+> `expect(bool).ToBeTrue()`
+
+Asserts that `bool` is true.
+
+```go
+expect(true).ToBeTrue()
+```
+
+### ToBeFalse
+
+> `expect(bool).ToBeFalse()`
+
+Asserts that `bool` is false.
+
+```go
+expect(false).ToBeFalse()
+```
+
 ### Contains
 
 > `expect(string).Contains(expectedString)`
