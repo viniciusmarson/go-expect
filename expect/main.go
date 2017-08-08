@@ -3,6 +3,7 @@ package expect
 
 import (
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -82,6 +83,24 @@ func (i Info) ToNotBe(theNotExpectedValue interface{}) {
 				t.Errorf("Expected the value %v to not be %v", i.value, theNotExpectedValue)
 			}
 		}
+	}
+}
+
+//Contains will check if the string contains some value
+func (i Info) Contains(contains interface{}) {
+	valueType := reflect.TypeOf(i.value).Kind()
+	containsType := reflect.TypeOf(contains).Kind()
+
+	if valueType != reflect.String || containsType != reflect.String {
+		t.Errorf("The value is a %v and the contains value is a %v", valueType, containsType)
+		return
+	}
+
+	value := i.value.(string)
+	containsValue := contains.(string)
+
+	if !strings.Contains(value, containsValue) {
+		t.Errorf("%s not contains %s", value, containsValue)
 	}
 }
 
@@ -177,6 +196,41 @@ func (i Info) ToInclude(theExpectedValue interface{}) {
 
 			if !found {
 				t.Errorf("Informed value %v not found in slice %v", theExpectedValue, i.value)
+			}
+		}
+	}
+}
+
+//ToExclude asserts the given array not contains the informed value
+func (i Info) ToExclude(theExpectedValue interface{}) {
+	valueType := reflect.TypeOf(i.value).Kind()
+	theExpectedValueType := reflect.TypeOf(theExpectedValue).Kind()
+
+	value := reflect.ValueOf(i.value)
+
+	if valueType != reflect.Slice {
+		t.Errorf("The value infromed is of type %v", valueType)
+	} else if value.Len() == 0 {
+		t.Errorf("The value informed is an empty slice")
+	} else {
+
+		sliceType := reflect.TypeOf(value.Index(0).Interface()).Kind()
+
+		if sliceType != theExpectedValueType {
+			t.Errorf("The expected value informed is of type %v and the slice is of type %v", theExpectedValueType, sliceType)
+		} else {
+
+			found := false
+
+			for j := 0; j < value.Len(); j++ {
+				if value.Index(j).Interface() == theExpectedValue {
+					found = true
+					break
+				}
+			}
+
+			if found {
+				t.Errorf("Informed value %v found in slice %v", theExpectedValue, i.value)
 			}
 		}
 	}

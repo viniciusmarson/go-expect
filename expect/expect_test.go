@@ -20,6 +20,11 @@ func TestToNotBe(t *testing.T) {
 	expect(x).ToNotBe(y)
 }
 
+func TestContains(t *testing.T) {
+	expect := New(t)
+	expect("banana").Contains("nana")
+}
+
 func TestToBeLessThanOrEqualTo(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeLessThanOrEqualTo(10)
@@ -55,4 +60,9 @@ func TestToNotExist(t *testing.T) {
 func TestToInclude(t *testing.T) {
 	expect := New(t)
 	expect([]int{10, 9, 8}).ToInclude(10)
+}
+
+func TestToExclude(t *testing.T) {
+	expect := New(t)
+	expect([]int{10, 9, 8}).ToExclude(2)
 }

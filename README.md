@@ -83,6 +83,17 @@ Asserts that `value` is not strictly equal to `expectedValue`.
 expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
+### Contains
+
+> `expect(string).Contains(expectedString)`
+
+Asserts that `string` contains `expectedString`.
+
+```go
+expect("banana").Contains("nana")
+```
+
+
 
 ### ToBeLessThan
 
@@ -147,6 +158,16 @@ Asserts the given `slice` contains the `value`.
 
 ```go
 expect([]int{ 10, 9 , 8 }).ToInclude(9)
+```
+
+### ToExclude
+
+> `expect(slice).ToExclude(value)`
+
+Asserts the given `slice` not contains the `value`.
+
+```go
+expect([]int{ 10, 9 , 8 }).ToExclude(2)
 ```
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
