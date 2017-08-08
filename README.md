@@ -126,7 +126,7 @@ expect("banana").Contains("nana")
 Asserts that `string` not contains `notExpectedString`.
 
 ```go
-expect("banana").Contains("haha")
+expect("banana").NotContains("haha")
 ```
 
 &nbsp;
