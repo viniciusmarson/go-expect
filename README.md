@@ -171,8 +171,6 @@ expect([]int{ 10, 9 , 8 }).ToExclude(2)
 
 ## TODO 
 
-* ToBeTrue
-* ToBeFalse
 
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)

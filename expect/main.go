@@ -27,6 +27,32 @@ func valueToAssert(i interface{}) Info {
 	return Info{value: i}
 }
 
+//ToBeTrue asserts that the value is true
+func (i Info) ToBeTrue() {
+	valueType := reflect.TypeOf(i.value).Kind()
+	if valueType != reflect.Bool {
+		t.Errorf("The value is a %v and not a boolean", valueType)
+		return
+	}
+
+	if i.value.(bool) != true {
+		t.Errorf("Expected to be true but get false")
+	}
+}
+
+//ToBeFalse asserts that the value is false
+func (i Info) ToBeFalse() {
+	valueType := reflect.TypeOf(i.value).Kind()
+	if valueType != reflect.Bool {
+		t.Errorf("The value is a %v and not a boolean", valueType)
+		return
+	}
+
+	if i.value.(bool) != false {
+		t.Errorf("Expected to be false but get true")
+	}
+}
+
 //ToBe asserts that object is strictly equal to value.
 func (i Info) ToBe(theExpectedValue interface{}) {
 	valueType := reflect.TypeOf(i.value).Kind()

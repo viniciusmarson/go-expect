@@ -20,6 +20,16 @@ func TestToNotBe(t *testing.T) {
 	expect(x).ToNotBe(y)
 }
 
+func TestToBeTrue(t *testing.T) {
+	expect := New(t)
+	expect(true).ToBeTrue()
+}
+
+func TestToBeFalse(t *testing.T) {
+	expect := New(t)
+	expect(false).ToBeFalse()
+}
+
 func TestContains(t *testing.T) {
 	expect := New(t)
 	expect("banana").Contains("nana")
