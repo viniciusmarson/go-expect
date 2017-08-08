@@ -118,7 +118,7 @@ func (i Info) Contains(contains interface{}) {
 	containsType := reflect.TypeOf(contains).Kind()
 
 	if valueType != reflect.String || containsType != reflect.String {
-		t.Errorf("The value is a %v and the contains value is a %v", valueType, containsType)
+		t.Errorf("The value is a %v and the contains value is a %v. Must be a string", valueType, containsType)
 		return
 	}
 
@@ -136,7 +136,7 @@ func (i Info) NotContains(contains interface{}) {
 	containsType := reflect.TypeOf(contains).Kind()
 
 	if valueType != reflect.String || containsType != reflect.String {
-		t.Errorf("The value is a %v and the contains value is a %v", valueType, containsType)
+		t.Errorf("The value is a %v and the contains value is a %v. Must be a string", valueType, containsType)
 		return
 	}
 
@@ -277,5 +277,53 @@ func (i Info) ToExclude(theExpectedValue interface{}) {
 				t.Errorf("Informed value %v found in slice %v", theExpectedValue, i.value)
 			}
 		}
+	}
+}
+
+//Fail force fails
+func (i Info) Fail(message string) {
+	if message != "" {
+		t.Errorf(message)
+	} else {
+		t.Errorf("Explicitly forces failure")
+	}
+}
+
+//ToBeAn check if the value is of some type
+func (i Info) ToBeAn(expectedType string) {
+	valueType := reflect.TypeOf(i.value).Kind()
+	var error = false
+
+	switch expectedType {
+	case "slice":
+		if valueType != reflect.Slice {
+			error = true
+		}
+	case "string":
+		if valueType != reflect.String {
+			error = true
+		}
+	case "int":
+		if valueType != reflect.Int {
+			error = true
+		}
+	case "bool":
+		if valueType != reflect.Bool {
+			error = true
+		}
+	case "struct":
+		if valueType != reflect.Struct {
+			error = true
+		}
+	case "interface":
+		if valueType != reflect.Interface {
+			error = true
+		}
+	default:
+		t.Errorf("Expected type %s not exist", expectedType)
+	}
+
+	if error {
+		t.Errorf("Expected the type %s but the type is %v", expectedType, valueType)
 	}
 }

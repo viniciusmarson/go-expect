@@ -86,6 +86,23 @@ expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
 ```
 
 &nbsp;
+### ToBeAn
+
+> `expect(value).ToBeAn(expectedType)`
+
+Asserts that `value` is of the type `expectedType`.
+
+```go
+expect("test").ToBe("string")
+expect(true).ToBe("bool")
+expect(10).ToBe("int")
+expect([]int{}).ToBe("slice")
+expect(`some interface{}`).ToBe("interface")
+expect(`some struct`).ToBe("struct")
+```
+
+
+&nbsp;
 ### ToBeTrue
 
 > `expect(bool).ToBeTrue()`
@@ -194,6 +211,20 @@ Asserts the given `slice` not contains the `value`.
 ```go
 expect([]int{ 10, 9 , 8 }).ToExclude(2)
 ```
+
+
+&nbsp;
+### Fail
+
+> `expect().Fail()`
+
+Explicitly forces failure.
+
+```go
+expect().Fail()
+expect().Fail("Custom message")
+```
+
 
 &nbsp;
 ## TODO 
