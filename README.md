@@ -128,17 +128,6 @@ expect(3).ToBeGreaterThanOrEqualTo(2)
 ```
 
 
-### ToBeGreaterThanOrEqualTo
-
-> `expect(number).ToBeGreaterThanOrEqualTo(value)`
-
-Asserts the given `number` is greater than or equal to `value`.
-
-```go
-expect(3).ToBeGreaterThanOrEqualTo(2)
-```
-
-
 ### ToInclude
 
 > `expect(slice).ToInclude(value)`
@@ -152,5 +141,7 @@ expect([]int{ 10, 9 , 8 }).ToInclude(9)
 ## TODO 
 
 * ToExclude
+* Contains
+* NotContains
 
 ![Go](http://nordicapis.com/wp-content/uploads/golang-hemmingway-with-a-martini-02-243x300.png)
