@@ -72,6 +72,8 @@ Asserts that `value` is strictly equal to `expectedValue`.
 
 ```go
 expect([]int{ 1, 2, 3, 4 }).ToBe([]int{ 1, 2, 3, 4 })
+expect("test").ToBe("test")
+expect(11).ToBe(11)
 ```
 
 &nbsp;
@@ -83,6 +85,8 @@ Asserts that `value` is not strictly equal to `expectedValue`.
 
 ```go
 expect([]int{ 1, 2, 3, 4 }).ToNotBe([]int{ 4, 3, 2, 1 })
+expect("test").ToNotBe("tset")
+expect(10).ToNotBe(11)
 ```
 
 &nbsp;
