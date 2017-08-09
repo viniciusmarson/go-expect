@@ -102,10 +102,15 @@ Asserts that `value` is of the type `expectedType`.
 
 ```go
 expect("test").ToBeA("string")
+
 expect(true).ToBeA("bool")
+
 expect(10).ToBeAn("int")
+
 expect([]int{}).ToBeA("slice")
+
 expect(`some interface{}`).ToBeAn("interface")
+
 expect(`some struct`).ToBeA("struct")
 ```
 
