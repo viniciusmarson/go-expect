@@ -148,50 +148,50 @@ func (i Info) NotContains(contains interface{}) {
 }
 
 //ToBeLessThanOrEqualTo asserts the given number is less than or equal to the informed value.
-func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue int) {
-	value, ok := i.value.(int)
+func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue float64) {
+	value, ok := i.value.(float64)
 	if ok {
 		if value > theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type int", i.value)
+		t.Errorf("The parameter %v is not of type float64", i.value)
 	}
 }
 
 //ToBeLessThan asserts the given number is less than the informed value.
-func (i Info) ToBeLessThan(theNotExpectedValue int) {
-	value, ok := i.value.(int)
+func (i Info) ToBeLessThan(theNotExpectedValue float64) {
+	value, ok := i.value.(float64)
 	if ok {
 		if value >= theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type int", i.value)
+		t.Errorf("The parameter %v is not of type float64", i.value)
 	}
 }
 
 //ToBeGreaterThanOrEqualTo asserts the given number is greater than or equal to the informed value.
-func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue int) {
-	value, ok := i.value.(int)
+func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue float64) {
+	value, ok := i.value.(float64)
 	if ok {
 		if value < theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type int", i.value)
+		t.Errorf("The parameter %v is not of type float64", i.value)
 	}
 }
 
 //ToBeGreaterThan asserts the given number is greater than the informed value.
-func (i Info) ToBeGreaterThan(theNotExpectedValue int) {
-	value, ok := i.value.(int)
+func (i Info) ToBeGreaterThan(theNotExpectedValue float64) {
+	value, ok := i.value.(float64)
 	if ok {
 		if value <= theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type int", i.value)
+		t.Errorf("The parameter %v is not of type float64", i.value)
 	}
 }
 
