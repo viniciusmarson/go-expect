@@ -43,23 +43,32 @@ func TestNotContains(t *testing.T) {
 func TestToBeLessThanOrEqualTo(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeLessThanOrEqualTo(10)
+	expect(10.0).ToBeLessThanOrEqualTo(10)
+
 	expect(10).ToBeLessThanOrEqualTo(11)
+	expect(10.0).ToBeLessThanOrEqualTo(11)
 }
 
 func TestToBeLessThan(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeLessThan(11)
+	expect(10.0).ToBeLessThan(11)
 }
 
 func TestToBeGreaterThanOrEqualTo(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeGreaterThanOrEqualTo(10)
+	expect(10.0).ToBeGreaterThanOrEqualTo(10)
+
 	expect(10).ToBeGreaterThanOrEqualTo(9)
+	expect(10.0).ToBeGreaterThanOrEqualTo(9)
+
 }
 
 func TestToBeGreaterThan(t *testing.T) {
 	expect := New(t)
 	expect(10).ToBeGreaterThan(9)
+	expect(10.0).ToBeGreaterThan(9)
 }
 
 func TestToExist(t *testing.T) {

@@ -149,49 +149,49 @@ func (i Info) NotContains(contains interface{}) {
 
 //ToBeLessThanOrEqualTo asserts the given number is less than or equal to the informed value.
 func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue float64) {
-	value, ok := i.value.(float64)
+	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value > theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type float64", i.value)
+		t.Errorf("The parameter %v is not a number", i.value)
 	}
 }
 
 //ToBeLessThan asserts the given number is less than the informed value.
 func (i Info) ToBeLessThan(theNotExpectedValue float64) {
-	value, ok := i.value.(float64)
+	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value >= theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type float64", i.value)
+		t.Errorf("The parameter %v is not a number", i.value)
 	}
 }
 
 //ToBeGreaterThanOrEqualTo asserts the given number is greater than or equal to the informed value.
 func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue float64) {
-	value, ok := i.value.(float64)
+	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value < theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type float64", i.value)
+		t.Errorf("The parameter %v is not a number", i.value)
 	}
 }
 
 //ToBeGreaterThan asserts the given number is greater than the informed value.
 func (i Info) ToBeGreaterThan(theNotExpectedValue float64) {
-	value, ok := i.value.(float64)
+	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value <= theNotExpectedValue {
 			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
-		t.Errorf("The parameter %v is not of type float64", i.value)
+		t.Errorf("The parameter %v is not a number", i.value)
 	}
 }
 
@@ -298,6 +298,18 @@ func (i Info) ToBeAn(expectedType string) {
 func (i Info) ToBeA(expectedType string) {
 	valueType := reflect.TypeOf(i.value).Kind()
 	checkType(valueType, expectedType)
+}
+
+func interfaceToFloat64(i interface{}) (value float64, ok bool) {
+	var intValue int
+	value, ok = i.(float64)
+	if !ok {
+		intValue, ok = i.(int)
+		if ok {
+			value = float64(intValue)
+		}
+	}
+	return
 }
 
 func checkType(valueType reflect.Kind, expectedType string) {
