@@ -152,7 +152,7 @@ func (i Info) ToBeLessThanOrEqualTo(theNotExpectedValue float64) {
 	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value > theNotExpectedValue {
-			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
+			t.Errorf("Expected the value %v to be less than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
 		t.Errorf("The parameter %v is not a number", i.value)
@@ -164,7 +164,7 @@ func (i Info) ToBeLessThan(theNotExpectedValue float64) {
 	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value >= theNotExpectedValue {
-			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
+			t.Errorf("Expected the value %v to  beless than %v", i.value, theNotExpectedValue)
 		}
 	} else {
 		t.Errorf("The parameter %v is not a number", i.value)
@@ -176,7 +176,7 @@ func (i Info) ToBeGreaterThanOrEqualTo(theNotExpectedValue float64) {
 	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value < theNotExpectedValue {
-			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
+			t.Errorf("Expected the value %v to be greater than or equal to %v", i.value, theNotExpectedValue)
 		}
 	} else {
 		t.Errorf("The parameter %v is not a number", i.value)
@@ -188,7 +188,7 @@ func (i Info) ToBeGreaterThan(theNotExpectedValue float64) {
 	value, ok := interfaceToFloat64(i.value)
 	if ok {
 		if value <= theNotExpectedValue {
-			t.Errorf("Expected the value %v to less than or equal to %v", i.value, theNotExpectedValue)
+			t.Errorf("Expected the value %v to be greater than %v", i.value, theNotExpectedValue)
 		}
 	} else {
 		t.Errorf("The parameter %v is not a number", i.value)
